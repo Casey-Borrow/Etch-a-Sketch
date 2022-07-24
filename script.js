@@ -34,6 +34,6 @@ var selectSquare = document.getElementsByClassName("gridSquare");
 
 for (var i = 0; i < selectSquare.length; i++) {
     selectSquare[i].addEventListener("mouseover", function () {
-        this.style.backgroundColor = "red";
+        this.classList.add('gridRed');
     });
 }
