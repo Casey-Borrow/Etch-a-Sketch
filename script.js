@@ -30,10 +30,10 @@ function deleteGrid() {
 
 createGrid(16)
 
-var selectSquare = document.getElementsByClassName("gridSquare")[0];
+var selectSquare = document.getElementsByClassName("gridSquare");
 
-selectSquare.addEventListener("mouseover", gridRed);
-
-function gridRed() {
-    selectSquare.setAttribute("style", "background-color:red;")
+for (var i = 0; i < selectSquare.length; i++) {
+    selectSquare[i].addEventListener("mouseover", function () {
+        this.style.backgroundColor = "red";
+    });
 }
