@@ -29,3 +29,11 @@ function deleteGrid() {
 }
 
 createGrid(16)
+
+var selectSquare = document.getElementsByClassName("gridSquare")[0];
+
+selectSquare.addEventListener("mouseover", gridRed);
+
+function gridRed() {
+    selectSquare.setAttribute("style", "background-color:red;")
+}
