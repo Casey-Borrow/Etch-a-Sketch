@@ -7,7 +7,7 @@ function createRow() {
 
 function createSquare() {
     var square = document.createElement("div");
-    square.className = "gridSquare"
+    square.className = "gridSquare";
 }
 
 function createGrid(x) {
@@ -17,23 +17,33 @@ function createGrid(x) {
         row.className = "gridRow";
         for (let y = 0; y < x; y++) {
             var square = document.createElement("div");
-            square.className = "gridSquare"
+            square.className = "gridSquare";
             row.appendChild(square);
         }
         grid.appendChild(row)
     }
+    var selectSquare = document.getElementsByClassName("gridSquare");
+
+    for (var i = 0; i < selectSquare.length; i++) {
+        selectSquare[i].addEventListener("mouseover", function () {
+         this.classList.add('gridRed');
+    });
+}
 }
 
 function deleteGrid() {
     while (grid.firstChild) grid.removeChild(grid.firstChild);
 }
 
-createGrid(16)
+var newGridButton = document.getElementById("newGrid");
 
-var selectSquare = document.getElementsByClassName("gridSquare");
-
-for (var i = 0; i < selectSquare.length; i++) {
-    selectSquare[i].addEventListener("mouseover", function () {
-        this.classList.add('gridRed');
-    });
+function promptSize() {
+    var size = window.prompt("New grid size?");
+    createGrid(size);
 }
+
+createGrid(16);
+
+newGridButton.addEventListener("click", function() {
+    promptSize();
+})
