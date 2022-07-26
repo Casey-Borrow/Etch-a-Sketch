@@ -38,7 +38,14 @@ function deleteGrid() {
 var newGridButton = document.getElementById("newGrid");
 
 function promptSize() {
-    var size = window.prompt("New grid size?");
+    var confirm = 0
+    var size = 0;
+    do {
+        size = parseInt(window.prompt("Please enter a number between 1 - 100"));
+        if (size >= 1 && size <= 100) {
+            confirm = 1;
+        }
+    } while (confirm !== 1);
     createGrid(size);
 }
 
